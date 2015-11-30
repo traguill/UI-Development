@@ -9,6 +9,7 @@
 #include "UILabel.h"
 #include "UIImage.h"
 #include "UIButton.h"
+#include "j1Window.h"
 
 
 j1UIManager::j1UIManager() : j1Module()
@@ -172,6 +173,44 @@ void j1UIManager::GetMouseInput()
 	if (App->input->GetMouseButtonDown(1) == KEY_UP)
 	{
 		gui_pressed = NULL;
+	}
+}
+
+void j1UIManager::SetNextFocus()
+{
+	p2List_item<UIEntity*>* item = gui_elements.start;
+
+	unsigned int min_x, min_y;
+	App->win->GetWindowSize(min_x, min_y);
+	
+	int focus_x, focus_y;
+	focus->GetScreenPos(focus_x, focus_y);
+	while (item)
+	{
+		if (item->data->focusable)
+		{
+			SDL_Rect pos = item->data->GetScreenRect;
+			if (pos.y < min_y && pos.y >= focus_y)
+			{
+				focus->isFocus = false;
+				focus = item->data;
+				focus->isFocus = true;
+				focus->GetScreenPos(focus_x, focus_y);
+				min_y = pos.y;
+			}
+			else
+			{
+				if (pos.x < min_x && pos.y == min_y && focus_x <= pos.x)
+				{
+					focus->isFocus = false;
+					focus = item->data;
+					focus->isFocus = true;
+					focus->GetScreenPos(focus_x, focus_y);
+					min_x = pos.x;
+				}
+			}
+		}
+		item = item->next;
 	}
 }
 

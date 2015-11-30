@@ -59,6 +59,8 @@ public:
 	j1Module*			listener;
 	UIEntity*			parent = NULL;
 	bool				interactable = false;
+	bool				focusable = false;
+	bool				isFocus = false;
 
 protected:
 	SDL_Rect rect; //Local

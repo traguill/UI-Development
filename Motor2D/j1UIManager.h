@@ -55,6 +55,7 @@ public:
 private:
 	//Utilities ------------------------------------------------------------------------------------------------------
 	void GetMouseInput(); //Get input of mouse to drag windows/elements
+	void SetNextFocus(); //Sets the focus to the next element
 
 private:
 
@@ -63,6 +64,7 @@ private:
 
 	p2List<UIEntity*>		gui_elements;
 	UIEntity*				gui_pressed = NULL;
+	UIEntity*				focus = NULL;
 
 public:
 	bool debug;
