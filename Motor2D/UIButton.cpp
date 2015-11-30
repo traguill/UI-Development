@@ -16,13 +16,8 @@ UIButton::UIButton(const char* _text, const int x, const int y, const char* path
 	state = IDLE;
 	text.Print(_text);
 
-	int px, py;
-	px = py = 0;
-	if (parent != NULL)
-		parent->GetScreenPos(px, py);
-
-	rect.x = px + x;
-	rect.y = py + y;
+	rect.x = x;
+	rect.y = y;
 
 	idle = App->tex->Load(path_idle);
 
@@ -53,16 +48,17 @@ bool UIButton::Update(float dt)
 	GetScreenPos(x, y);
 	
 	if (state == IDLE)
-		App->render->Blit(idle, x - cam_pos.x, y - cam_pos.y);
+		App->render->Blit(idle, x , y);
 	if (state == PRESSED)
-		App->render->Blit(pressed, x - cam_pos.x, y - cam_pos.y);
+		App->render->Blit(pressed, x , y);
 	if (state == HOVER)
-		App->render->Blit(hover, x - cam_pos.x, y - cam_pos.y);
+		App->render->Blit(hover, x , y);
 
-	
-	x = rect.x + (rect.w / 2 - text.rect.w / 2);
-	y = rect.y + (rect.h / 2 - text.rect.h / 2);
-	App->render->Blit(text.texture, x - cam_pos.x, y - cam_pos.y);
+	SDL_Rect button_rec = GetScreenRect();
+	SDL_Rect t = text.GetLocalRect();
+	x = button_rec.x + (button_rec.w / 2 - t.w / 2);
+	y = button_rec.y + (button_rec.h / 2 - t.h / 2);
+	App->render->Blit(text.texture, x, y);
 
 
 	return ret;

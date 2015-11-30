@@ -17,14 +17,9 @@ UILabel::UILabel(const char* txt, const int x, const int y) : UIEntity()
 	text = txt;
 	
 	texture = App->font->Print(text.GetString());
-	
-	int px, py;
-	px = py = 0;
-	if (parent != NULL)
-		parent->GetScreenPos(px, py);
 
-	rect.x = px + x;
-	rect.y = py + y;
+	rect.x = x;
+	rect.y = y;
 	
 	SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
 }

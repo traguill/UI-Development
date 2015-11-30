@@ -28,9 +28,11 @@ void UIEntity::GUIEvents()
 	SDL_Point mouse_position;
 	App->input->GetMousePosition(mouse_position.x, mouse_position.y);
 
+	SDL_Rect rec_screen = GetScreenRect();
+
 	if (gui_event != MOUSE_ENTER && gui_event != MOUSE_BUTTON_RIGHT_DOWN)
 	{
-		if (mouse_position.x > rect.x && mouse_position.y > rect.y && mouse_position.x < rect.x + rect.w &&  mouse_position.y < rect.y + rect.h)
+		if (mouse_position.x > rec_screen.x && mouse_position.y > rec_screen.y && mouse_position.x < rec_screen.x + rec_screen.w &&  mouse_position.y < rec_screen.y + rec_screen.h)
 		{
 			
 			gui_event = MOUSE_ENTER;
@@ -42,7 +44,7 @@ void UIEntity::GUIEvents()
 	{
 		if (gui_event == MOUSE_ENTER || gui_event == MOUSE_BUTTON_RIGHT_DOWN)
 		{
-			if (mouse_position.x > rect.x && mouse_position.y > rect.y && mouse_position.x < rect.x + rect.w &&  mouse_position.y < rect.y + rect.h)
+			if (mouse_position.x > rec_screen.x && mouse_position.y > rec_screen.y && mouse_position.x < rec_screen.x + rec_screen.w &&  mouse_position.y < rec_screen.y + rec_screen.h)
 			{
 				if (App->input->GetMouseButtonDown(1) == KEY_DOWN)
 				{
@@ -73,14 +75,15 @@ void UIEntity::GUIEvents()
 
 void UIEntity::Debug()
 {
-	App->render->DrawLine(rect.x, rect.y, rect.x + rect.w, rect.y, 0, 0, 255, 255);
-	App->render->DrawLine(rect.x, rect.y, rect.x, rect.y + rect.h, 0, 0, 255, 255);
-	App->render->DrawLine(rect.x + rect.w, rect.y, rect.x + rect.w, rect.y + rect.h, 0, 0, 255, 255);
-	App->render->DrawLine(rect.x, rect.y + rect.h, rect.x + rect.w, rect.y + rect.h, 0, 0, 255, 255);
+	SDL_Rect screen_rect = GetScreenRect();
+	App->render->DrawLine(screen_rect.x, screen_rect.y, screen_rect.x + screen_rect.w, screen_rect.y, 0, 0, 255, 255);
+	App->render->DrawLine(screen_rect.x, screen_rect.y, screen_rect.x, screen_rect.y + screen_rect.h, 0, 0, 255, 255);
+	App->render->DrawLine(screen_rect.x + screen_rect.w, screen_rect.y, screen_rect.x + screen_rect.w, screen_rect.y + screen_rect.h, 0, 0, 255, 255);
+	App->render->DrawLine(screen_rect.x, screen_rect.y + screen_rect.h, screen_rect.x + screen_rect.w, screen_rect.y + screen_rect.h, 0, 0, 255, 255);
 }
 
 
-void UIEntity::GetScreenPos(int &x, int &y)
+void UIEntity::GetScreenPos(int &x, int &y)const
 {
 	x = y = 0;
 	if (parent != NULL)
@@ -89,15 +92,35 @@ void UIEntity::GetScreenPos(int &x, int &y)
 	y += rect.y;
 }
 
+void UIEntity::GetLocalPos(int &x, int &y)const
+{
+	x = rect.x;
+	y = rect.y;
+}
+
+SDL_Rect UIEntity::GetScreenRect()const
+{
+	SDL_Rect ret = rect;
+	GetScreenPos(ret.x, ret.y);
+
+	return ret;
+}
+
+SDL_Rect UIEntity::GetLocalRect()const
+{
+	return rect;
+}
+
+void UIEntity::SetLocalPos(int x, int y)
+{
+	rect.x = x;
+	rect.y = y;
+}
+
+
+
 
 void UIEntity::SetParent(UIEntity* _parent)
 {
 	parent = _parent;
-
-	int px, py;
-	px = py = 0;
-	parent->GetScreenPos(px, py);
-
-	rect.x += px;
-	rect.y += py;
 }

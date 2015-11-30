@@ -14,13 +14,8 @@ UIImage::UIImage(const char* path, const int x, const int y) : UIEntity()
 	type = IMAGE;
 	texture = App->tex->Load(path);
 	
-	int px, py;
-	px = py = 0;
-	if (parent != NULL)
-		parent->GetScreenPos(px, py);
-
-	rect.x = px + x;
-	rect.y = py + y;
+	rect.x = x;
+	rect.y = y;
 
 	SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
 	
@@ -31,13 +26,8 @@ UIImage::UIImage(SDL_Texture* tex, const int x, const int y) : UIEntity()
 	type = IMAGE;
 	texture = tex;
 	
-	int px, py;
-	px = py = 0;
-	if (parent != NULL)
-		parent->GetScreenPos(px, py);
-
-	rect.x = px + x;
-	rect.y = py + y;
+	rect.x = x;
+	rect.y = y;
 
 	SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
 	

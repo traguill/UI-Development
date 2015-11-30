@@ -39,8 +39,12 @@ public:
 
 	void GUIEvents();
 
-	void GetScreenPos(int &x, int &y);
-	SDL_Rect GetRect();
+	void GetScreenPos(int &x, int &y)const;
+	void GetLocalPos(int &x, int &y)const;
+	SDL_Rect GetScreenRect()const;
+	SDL_Rect GetLocalRect()const;
+	void SetLocalPos(int x, int y);
+	
 
 	void SetParent(UIEntity* parent);
 
@@ -55,8 +59,8 @@ public:
 
 	UIEntity* parent = NULL;
 
-
-	SDL_Rect rect;
+protected:
+	SDL_Rect rect; //Local
 
 
 };

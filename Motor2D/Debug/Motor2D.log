@@ -1,37 +1,11 @@
-﻿Compilación iniciada a las 30/11/2015 11:53:41.
-     1>Proyecto "K:\The good one\Motor2D\Motor2D.vcxproj" en el nodo 2 (Build destinos).
+﻿Compilación iniciada a las 30/11/2015 18:51:39.
+     1>Proyecto "D:\Users\guillemtc\Documents\GitHub\UI-Development\Motor2D\Motor2D.vcxproj" en el nodo 2 (Build destinos).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Development - Class 11.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _ITERATOR_DEBUG_LEVEL=0 /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt UIButton.cpp UIEntity.cpp UIImage.cpp UILabel.cpp j1App.cpp j1Audio.cpp j1FileSystem.cpp j1Fonts.cpp j1Gui.cpp j1Input.cpp j1Main.cpp j1Map.cpp j1Pathfinding.cpp j1Render.cpp j1Scene.cpp j1Textures.cpp j1UIManager.cpp j1Window.cpp j1WowMenu.cpp
-         j1WowMenu.cpp
-     1>k:\the good one\motor2d\j1wowmenu.cpp(74): warning C4244: '+=' : conversión de 'float' a 'int'; posible pérdida de datos
-     1>k:\the good one\motor2d\j1wowmenu.cpp(77): warning C4244: '-=' : conversión de 'float' a 'int'; posible pérdida de datos
-     1>k:\the good one\motor2d\j1wowmenu.cpp(80): warning C4244: '+=' : conversión de 'float' a 'int'; posible pérdida de datos
-     1>k:\the good one\motor2d\j1wowmenu.cpp(83): warning C4244: '-=' : conversión de 'float' a 'int'; posible pérdida de datos
-         UIEntity.cpp
-         Generando código...
-         Compilando...
-         j1UIManager.cpp
-         Generando código...
-         Omitiendo... (no se detectaron cambios relevantes)
-         j1Window.cpp
-         j1Textures.cpp
-         j1Scene.cpp
-         j1Render.cpp
-         j1Pathfinding.cpp
-         j1Map.cpp
-         j1Main.cpp
-         j1Input.cpp
-         j1Gui.cpp
-         j1Fonts.cpp
-         j1FileSystem.cpp
-         j1Audio.cpp
-         j1App.cpp
-         UILabel.cpp
-         UIImage.cpp
+         C:\soft\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _ITERATOR_DEBUG_LEVEL=0 /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt UIButton.cpp
          UIButton.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"K:\The good one\Debug\Game Development.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"K:\The good one\Debug\Game Development.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"K:\The good one\Debug\Game Development.lib" /MACHINE:X86 Debug\j1FileSystem.obj
+         C:\soft\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Users\guillemtc\Documents\GitHub\UI-Development\Debug\Game Development.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Users\guillemtc\Documents\GitHub\UI-Development\Debug\Game Development.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Users\guillemtc\Documents\GitHub\UI-Development\Debug\Game Development.lib" /MACHINE:X86 Debug\j1FileSystem.obj
          Debug\j1Fonts.obj
          Debug\j1Gui.obj
          Debug\j1Main.obj
@@ -54,9 +28,9 @@
          Debug\UIEntity.obj
          Debug\UIImage.obj
          Debug\UILabel.obj
-         Motor2D.vcxproj -> K:\The good one\Debug\Game Development.exe
-     1>Compilación del proyecto terminada "K:\The good one\Motor2D\Motor2D.vcxproj" (Build destinos).
+         Motor2D.vcxproj -> D:\Users\guillemtc\Documents\GitHub\UI-Development\Debug\Game Development.exe
+     1>Compilación del proyecto terminada "D:\Users\guillemtc\Documents\GitHub\UI-Development\Motor2D\Motor2D.vcxproj" (Build destinos).
 
 Compilación correcta.
 
-Tiempo transcurrido 00:00:38.75
+Tiempo transcurrido 00:00:00.83
