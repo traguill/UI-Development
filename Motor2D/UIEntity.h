@@ -45,19 +45,20 @@ public:
 	SDL_Rect GetLocalRect()const;
 	void SetLocalPos(int x, int y);
 	
-
 	void SetParent(UIEntity* parent);
 
 	void Debug();
 
+	void Drag();
+
 public:
 
-	GUI_TYPE type;
-	GUI_EVENTS gui_event;
-	bool isVisible;
-	j1Module*		listener;
-
-	UIEntity* parent = NULL;
+	GUI_TYPE			type;
+	GUI_EVENTS			gui_event;
+	bool				isVisible;
+	j1Module*			listener;
+	UIEntity*			parent = NULL;
+	bool				interactable = false;
 
 protected:
 	SDL_Rect rect; //Local

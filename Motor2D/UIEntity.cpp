@@ -117,10 +117,18 @@ void UIEntity::SetLocalPos(int x, int y)
 	rect.y = y;
 }
 
-
-
-
 void UIEntity::SetParent(UIEntity* _parent)
 {
 	parent = _parent;
+}
+
+void UIEntity::Drag()
+{
+	if (interactable)
+	{
+		int motion_x, motion_y;
+		App->input->GetMouseMotion(motion_x, motion_y);
+		rect.x += motion_x;
+		rect.y += motion_y;
+	}
 }

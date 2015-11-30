@@ -49,12 +49,20 @@ public:
 
 	UIButton* CreateButton(const char* _text, const int x, const int y, const char* path_idle = NULL, const char* path_pressed = NULL, const char* path_hover = NULL, j1Module* listener = NULL);
 
+	//Functions ---------------------------------------------------------------------------------------------------
+	UIEntity* GetMouseHover()const;
+
+private:
+	//Utilities ------------------------------------------------------------------------------------------------------
+	void GetMouseInput(); //Get input of mouse to drag windows/elements
+
 private:
 
 	SDL_Texture* atlas;
 	p2SString atlas_file_name;
 
 	p2List<UIEntity*>		gui_elements;
+	UIEntity*				gui_pressed = NULL;
 
 public:
 	bool debug;

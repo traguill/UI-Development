@@ -61,6 +61,8 @@ bool j1UIManager::Update(float dt)
 	if (App->input->GetKey(SDL_SCANCODE_F1) == KEY_UP)
 		debug = !debug;
 
+	GetMouseInput();
+
 	p2List_item<UIEntity*>* item = gui_elements.start;
 	while (item && ret == true)
 	{
@@ -134,5 +136,42 @@ UIButton* j1UIManager::CreateButton(const char* _text, const int x, const int y,
 	gui_elements.add(button);
 
 	return button;
+}
+
+UIEntity* j1UIManager::GetMouseHover() const
+{
+	p2Point<int> mouse;
+	App->input->GetMousePosition(mouse.x, mouse.y);
+
+	p2List_item<UIEntity*>* item = gui_elements.end;
+
+	while (item)
+	{
+		SDL_Rect rect = item->data->GetScreenRect();
+		if (mouse.PointInRect(rect.x, rect.y, rect.w, rect.h) == true)
+		{
+			return item->data;
+		}
+		item = item->prev;
+	}
+	return NULL;
+}
+
+
+//Utilities -------------------------------------------------------------------------------------------------------------------------------------
+void j1UIManager::GetMouseInput()
+{
+	if (App->input->GetMouseButtonDown(1) == KEY_DOWN)
+	{
+		gui_pressed = GetMouseHover();
+	}
+
+	if (gui_pressed)
+		gui_pressed->Drag();
+
+	if (App->input->GetMouseButtonDown(1) == KEY_UP)
+	{
+		gui_pressed = NULL;
+	}
 }
 

@@ -7,10 +7,12 @@ UIImage::UIImage() : UIEntity()
 {
 	texture = NULL;
 	type = IMAGE;
+	interactable = true;
 }
 
 UIImage::UIImage(const char* path, const int x, const int y) : UIEntity()
 {
+	interactable = true;
 	type = IMAGE;
 	texture = App->tex->Load(path);
 	

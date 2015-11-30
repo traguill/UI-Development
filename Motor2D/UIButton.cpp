@@ -8,10 +8,12 @@ UIButton::UIButton() : UIEntity()
 {
 	type = BUTTON;
 	state = IDLE;
+	interactable = true;
 }
 
 UIButton::UIButton(const char* _text, const int x, const int y, const char* path_idle, const char* path_pressed, const char* path_hover) : UIEntity()
 {
+	interactable = true;
 	type = IMAGE;
 	state = IDLE;
 	text.Print(_text);
