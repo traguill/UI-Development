@@ -1,0 +1,63 @@
+#ifndef __J1UIMANAGER_H__
+#define __J1UIMANAGER_H__
+
+#include "j1Module.h"
+
+
+class UILabel;
+class UIImage;
+class UIEntity;
+class UIButton;
+
+// ---------------------------------------------------
+class j1UIManager : public j1Module
+{
+public:
+
+	j1UIManager();
+
+	// Destructor
+	virtual ~j1UIManager();
+
+	// Called when before render is available
+	bool Awake(pugi::xml_node&);
+
+	// Call before first frame
+	bool Start();
+
+	// Called before all Updates
+	bool PreUpdate();
+
+	bool Update(float dt);
+
+	// Called after all Updates
+	bool PostUpdate();
+
+	// Called before quitting
+	bool CleanUp();
+
+	// TODO 2: Create the factory methods
+	// Gui creation functions
+
+	const SDL_Texture* GetAtlas() const;
+
+	//Creators ------------------------------------------------------------------------------------------------
+	UILabel* CreateLabel(const char* text, const int x, const int y, j1Module* listener = NULL);
+
+	UIImage* CreateImage(const char* path, const int x, const int y, j1Module* listener = NULL);
+	UIImage* CreateImage(SDL_Texture* tex, const int x, const int y, j1Module* listener = NULL);
+
+	UIButton* CreateButton(const char* _text, const int x, const int y, const char* path_idle = NULL, const char* path_pressed = NULL, const char* path_hover = NULL, j1Module* listener = NULL);
+
+private:
+
+	SDL_Texture* atlas;
+	p2SString atlas_file_name;
+
+	p2List<UIEntity*>		gui_elements;
+
+public:
+	bool debug;
+};
+
+#endif
