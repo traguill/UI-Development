@@ -1,14 +1,11 @@
-﻿Build started 30/11/2015 22:03:19.
+﻿Build started 1/12/2015 13:58:56.
      1>Project "C:\Users\guillem\Documents\GitHub\UI-Development\Motor2D\Motor2D.vcxproj" on node 2 (Build target(s)).
      1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Development - Class 11.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _ITERATOR_DEBUG_LEVEL=0 /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt j1App.cpp j1Scene.cpp j1UIManager.cpp j1WowMenu.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _ITERATOR_DEBUG_LEVEL=0 /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt j1UIManager.cpp
          j1UIManager.cpp
-         Generating Code...
-         Skipping... (no relevant changes detected)
-         j1WowMenu.cpp
-         j1Scene.cpp
-         j1App.cpp
+     1>c:\users\guillem\documents\github\ui-development\motor2d\j1uimanager.cpp(209): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\guillem\documents\github\ui-development\motor2d\j1uimanager.cpp(220): warning C4018: '<' : signed/unsigned mismatch
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\guillem\Documents\GitHub\UI-Development\Debug\Game Development.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\guillem\Documents\GitHub\UI-Development\Debug\Game Development.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\guillem\Documents\GitHub\UI-Development\Debug\Game Development.lib" /MACHINE:X86 Debug\j1FileSystem.obj
          Debug\j1Fonts.obj
@@ -38,4 +35,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.91
+Time Elapsed 00:00:01.90

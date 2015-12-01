@@ -76,10 +76,12 @@ void UIEntity::GUIEvents()
 void UIEntity::Debug()
 {
 	SDL_Rect screen_rect = GetScreenRect();
-	App->render->DrawLine(screen_rect.x, screen_rect.y, screen_rect.x + screen_rect.w, screen_rect.y, 0, 0, 255, 255);
-	App->render->DrawLine(screen_rect.x, screen_rect.y, screen_rect.x, screen_rect.y + screen_rect.h, 0, 0, 255, 255);
-	App->render->DrawLine(screen_rect.x + screen_rect.w, screen_rect.y, screen_rect.x + screen_rect.w, screen_rect.y + screen_rect.h, 0, 0, 255, 255);
-	App->render->DrawLine(screen_rect.x, screen_rect.y + screen_rect.h, screen_rect.x + screen_rect.w, screen_rect.y + screen_rect.h, 0, 0, 255, 255);
+
+	if (isFocus == false)
+		App->render->DrawQuad(screen_rect, 0, 0, 255, 255, false);
+	else
+		App->render->DrawQuad(screen_rect, 255, 255, 0, 255, false);
+	
 }
 
 

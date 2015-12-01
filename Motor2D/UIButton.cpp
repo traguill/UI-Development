@@ -44,8 +44,6 @@ bool UIButton::Update(float dt)
 
 	GetState();
 
-	iPoint cam_pos(App->render->camera.x, App->render->camera.y);
-
 	int x, y;
 	GetScreenPos(x, y);
 	

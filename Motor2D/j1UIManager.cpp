@@ -64,6 +64,11 @@ bool j1UIManager::Update(float dt)
 
 	GetMouseInput();
 
+	if (App->input->GetKey(SDL_SCANCODE_TAB) == KEY_DOWN)
+	{
+		SetNextFocus();
+	}
+
 	p2List_item<UIEntity*>* item = gui_elements.start;
 	while (item && ret == true)
 	{
@@ -165,6 +170,14 @@ void j1UIManager::GetMouseInput()
 	if (App->input->GetMouseButtonDown(1) == KEY_DOWN)
 	{
 		gui_pressed = GetMouseHover();
+
+		if (gui_pressed->focusable)
+		{
+			if (focus)
+				focus->isFocus = false;
+			focus = gui_pressed;
+			gui_pressed->isFocus = true;
+		}
 	}
 
 	if (gui_pressed)
@@ -184,15 +197,19 @@ void j1UIManager::SetNextFocus()
 	App->win->GetWindowSize(min_x, min_y);
 	
 	int focus_x, focus_y;
-	focus->GetScreenPos(focus_x, focus_y);
+	if (focus != NULL)
+		focus->GetScreenPos(focus_x, focus_y);
+	else
+		focus_x = focus_y = 0;
 	while (item)
 	{
-		if (item->data->focusable)
+		if (item->data->focusable && item->data != focus)
 		{
-			SDL_Rect pos = item->data->GetScreenRect;
+			SDL_Rect pos = item->data->GetScreenRect();
 			if (pos.y < min_y && pos.y >= focus_y)
 			{
-				focus->isFocus = false;
+				if (focus != NULL)
+					focus->isFocus = false;
 				focus = item->data;
 				focus->isFocus = true;
 				focus->GetScreenPos(focus_x, focus_y);
@@ -202,7 +219,8 @@ void j1UIManager::SetNextFocus()
 			{
 				if (pos.x < min_x && pos.y == min_y && focus_x <= pos.x)
 				{
-					focus->isFocus = false;
+					if (focus != NULL)
+						focus->isFocus = false;
 					focus = item->data;
 					focus->isFocus = true;
 					focus->GetScreenPos(focus_x, focus_y);

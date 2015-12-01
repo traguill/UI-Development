@@ -59,7 +59,7 @@ public:
 	j1Module*			listener;
 	UIEntity*			parent = NULL;
 	bool				interactable = false;
-	bool				focusable = false;
+	bool				focusable = true;
 	bool				isFocus = false;
 
 protected:
