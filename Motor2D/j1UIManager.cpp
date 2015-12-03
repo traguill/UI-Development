@@ -195,40 +195,44 @@ void j1UIManager::SetNextFocus()
 
 	unsigned int min_x, min_y;
 	App->win->GetWindowSize(min_x, min_y);
+	int win_x = min_x;
 	
 	int focus_x, focus_y;
 	if (focus != NULL)
 		focus->GetScreenPos(focus_x, focus_y);
 	else
 		focus_x = focus_y = 0;
+
+	UIEntity* best_match = NULL;
 	while (item)
 	{
 		if (item->data->focusable && item->data != focus)
 		{
 			SDL_Rect pos = item->data->GetScreenRect();
-			if (pos.y < min_y && pos.y >= focus_y)
+			if (pos.y < min_y && pos.y > focus_y)
 			{
-				if (focus != NULL)
-					focus->isFocus = false;
-				focus = item->data;
-				focus->isFocus = true;
-				focus->GetScreenPos(focus_x, focus_y);
+				best_match = item->data;
 				min_y = pos.y;
+				min_x = win_x;
 			}
 			else
 			{
-				if (pos.x < min_x && pos.y == min_y && focus_x <= pos.x)
+				if (pos.x < min_x && pos.y == focus_y && focus_x < pos.x)
 				{
-					if (focus != NULL)
-						focus->isFocus = false;
-					focus = item->data;
-					focus->isFocus = true;
-					focus->GetScreenPos(focus_x, focus_y);
+					best_match = item->data;
 					min_x = pos.x;
 				}
 			}
 		}
 		item = item->next;
+	}
+
+	if (best_match != NULL)
+	{
+		if (focus != NULL)
+			focus->isFocus = false;
+		focus = best_match;
+		focus->isFocus = true;
 	}
 }
 
