@@ -31,6 +31,7 @@ public:
 	bool CleanUp();
 
 private:
+
 	void GetState(); //Sets the state of the button (idle, pressed, hover)
 
 private:
@@ -40,7 +41,6 @@ private:
 public:
 	UILabel		text;
 	BUTTON_STATE state;
-
 };
 
 #endif

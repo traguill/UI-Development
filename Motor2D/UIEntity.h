@@ -11,7 +11,8 @@ enum GUI_TYPE
 {
 	LABEL,
 	IMAGE,
-	BUTTON
+	BUTTON,
+	INPUT_BOX
 };
 
 enum GUI_EVENTS

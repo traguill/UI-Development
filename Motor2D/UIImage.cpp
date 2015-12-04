@@ -68,3 +68,13 @@ bool UIImage::CleanUp()
 
 	return ret;
 }
+
+void UIImage::LoadTexture(const char* path)
+{
+	if (texture != NULL)
+	{
+		App->tex->UnLoad(texture);
+	}
+
+	texture = App->tex->Load(path);
+}

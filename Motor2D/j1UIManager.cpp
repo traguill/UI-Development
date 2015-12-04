@@ -10,6 +10,7 @@
 #include "UIImage.h"
 #include "UIButton.h"
 #include "j1Window.h"
+#include "UIInputBox.h"
 
 
 j1UIManager::j1UIManager() : j1Module()
@@ -142,6 +143,15 @@ UIButton* j1UIManager::CreateButton(const char* _text, const int x, const int y,
 	gui_elements.add(button);
 
 	return button;
+}
+
+UIInputBox* j1UIManager::CreateInputBox(const char* text, const int x, const int y, const char* path, j1Module* listener)
+{
+	UIInputBox* ibox = new UIInputBox(text, x, y, path);
+	ibox->listener = listener;
+	gui_elements.add(ibox);
+
+	return ibox;
 }
 
 UIEntity* j1UIManager::GetMouseHover() const

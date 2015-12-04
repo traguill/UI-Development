@@ -28,7 +28,9 @@ public:
 private:
 
 	p2SString	text;
+
 public:
+
 	SDL_Texture* texture;
 
 };

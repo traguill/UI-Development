@@ -8,6 +8,7 @@ class UILabel;
 class UIImage;
 class UIEntity;
 class UIButton;
+class UIInputBox;
 
 // ---------------------------------------------------
 class j1UIManager : public j1Module
@@ -49,6 +50,7 @@ public:
 
 	UIButton* CreateButton(const char* _text, const int x, const int y, const char* path_idle = NULL, const char* path_pressed = NULL, const char* path_hover = NULL, j1Module* listener = NULL);
 
+	UIInputBox* CreateInputBox(const char* text, const int x, const int y, const char* path, j1Module* listener = NULL);
 	//Functions ---------------------------------------------------------------------------------------------------
 	UIEntity* GetMouseHover()const;
 

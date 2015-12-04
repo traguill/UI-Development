@@ -18,9 +18,10 @@ public:
 
 	bool Update(float dt);
 
-
 	// Called before quitting
 	bool CleanUp();
+
+	void LoadTexture(const char* path);
 
 private:
 	SDL_Texture* texture;

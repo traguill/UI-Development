@@ -37,7 +37,8 @@ bool j1WowMenu::Awake()
 bool j1WowMenu::Start()
 {
 	
-	App->ui->CreateImage("wow/background.jpg", 0, 0);
+	background = App->ui->CreateImage("wow/background.jpg", 0, 0);
+	background->interactable = false;
 	window = App->ui->CreateImage("wow/window.png", 500, 600);
 	login = App->ui->CreateButton("Login", 20, 10, "wow/button.png", "wow/button_pressed.png", "wow/button_hover.png");
 	login->SetParent(window);
@@ -46,6 +47,8 @@ bool j1WowMenu::Start()
 	App->ui->CreateButton("Cinematics", 1110, 775, "wow/button.png", "wow/button_pressed.png", "wow/button_hover.png");
 	App->ui->CreateButton("Credits", 1110, 800, "wow/button.png", "wow/button_pressed.png", "wow/button_hover.png");
 	App->ui->CreateButton("Terms of Use", 1110, 825, "wow/button.png", "wow/button_pressed.png", "wow/button_hover.png");
+
+	App->ui->CreateInputBox("Your name", 2, 10, "wow/button.png");
 
 
 	return true;
@@ -100,6 +103,12 @@ bool j1WowMenu::PostUpdate()
 bool j1WowMenu::CleanUp()
 {
 	LOG("Freeing scene");
+
+
+	delete label_test;
+	delete window;
+	delete login;
+	delete background;
 
 	return true;
 }

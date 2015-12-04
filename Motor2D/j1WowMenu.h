@@ -42,6 +42,7 @@ private:
 	UILabel*		label_test;
 	UIImage*		window;
 	UIButton*		login;
+	UIImage*		background;
 
 };
 

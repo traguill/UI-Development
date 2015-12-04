@@ -97,6 +97,7 @@
     <ClCompile Include="UIButton.cpp" />
     <ClCompile Include="UIEntity.cpp" />
     <ClCompile Include="UIImage.cpp" />
+    <ClCompile Include="UIInputBox.cpp" />
     <ClCompile Include="UILabel.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +129,7 @@
     <ClInclude Include="UIButton.h" />
     <ClInclude Include="UIEntity.h" />
     <ClInclude Include="UIImage.h" />
+    <ClInclude Include="UIInputBox.h" />
     <ClInclude Include="UILabel.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
