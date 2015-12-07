@@ -48,8 +48,7 @@ bool j1WowMenu::Start()
 	App->ui->CreateButton("Credits", 1110, 800, "wow/button.png", "wow/button_pressed.png", "wow/button_hover.png");
 	App->ui->CreateButton("Terms of Use", 1110, 825, "wow/button.png", "wow/button_pressed.png", "wow/button_hover.png");
 
-	App->ui->CreateInputBox("Your name", 2, 10, "wow/button.png");
-
+	App->ui->CreateInputBox("Your name", 2, 500, "wow/input_box.png");
 
 	return true;
 }

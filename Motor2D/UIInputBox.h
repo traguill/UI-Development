@@ -24,9 +24,13 @@ public:
 	bool CleanUp();
 
 private:
+	void DrawCursor();
+
+private:
 
 	UILabel* text;
 	UIImage* background;
+	bool writting = false; //Focus was set and now is writting (no need to clear text every frame)
 
 };
 

@@ -4,6 +4,7 @@
 #include "j1Fonts.h"
 #include "j1Textures.h"
 #include "UILabel.h"
+#include "j1Input.h"
 
 UIInputBox::UIInputBox() : UIEntity()
 {}
@@ -24,7 +25,6 @@ UIInputBox::UIInputBox(const char* txt, const int x, const int y, const char* pa
 	rect.y = y;
 	rect.w = text->GetScreenRect().w;
 	rect.h = text->GetScreenRect().h;
-
 }
 
 
@@ -39,6 +39,25 @@ bool UIInputBox::Update(float dt)
 	bool ret = true;
 
 	background->Update(dt);
+
+	if (isFocus && !writting)
+	{
+		App->input->StartGetText();	//Start writting
+		text->Print("");
+		writting = true;
+	}
+
+	if (isFocus && writting)
+	{
+		text->Print(App->input->GetTextInput());
+		DrawCursor();			//Keep writting
+	}
+	else
+		if (!isFocus)
+		{
+			writting = false;				//Stop writting
+			App->input->StopGetText();
+		}
 	text->Update(dt);
 
 	return ret;
@@ -55,5 +74,14 @@ bool UIInputBox::CleanUp()
 	delete background;
 
 	return ret;
+}
+
+void UIInputBox::DrawCursor()
+{
+	SDL_Rect cursor = text->GetScreenRect();
+	App->font->CalcSize(text->GetText().GetString(), cursor.w, cursor.h);
+	cursor.x += cursor.w;
+	cursor.w = 1;
+	App->render->DrawQuad(cursor, 255, 255, 255, 255);
 }
 

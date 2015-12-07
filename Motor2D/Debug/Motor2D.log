@@ -1,20 +1,11 @@
-﻿Compilación iniciada a las 04/12/2015 11:30:44.
-     1>Proyecto "D:\Users\guillemtc\Documents\GitHub\UI-Development\Motor2D\Motor2D.vcxproj" en el nodo 2 (Build destinos).
-     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(381,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Development - Class 11.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+﻿Build started 7/12/2015 12:24:17.
+     1>Project "C:\Users\guillem\Documents\GitHub\UI-Development\Motor2D\Motor2D.vcxproj" on node 2 (Build target(s)).
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppBuild.targets(388,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Development - Class 11.vcxproj).  This can lead to incorrect clean and rebuild behavior.
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _ITERATOR_DEBUG_LEVEL=0 /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt j1App.cpp j1WowMenu.cpp
-         j1WowMenu.cpp
-     1>d:\users\guillemtc\documents\github\ui-development\motor2d\j1wowmenu.cpp(77): warning C4244: '+=' : conversión de 'float' a 'int'; posible pérdida de datos
-     1>d:\users\guillemtc\documents\github\ui-development\motor2d\j1wowmenu.cpp(80): warning C4244: '-=' : conversión de 'float' a 'int'; posible pérdida de datos
-     1>d:\users\guillemtc\documents\github\ui-development\motor2d\j1wowmenu.cpp(83): warning C4244: '+=' : conversión de 'float' a 'int'; posible pérdida de datos
-     1>d:\users\guillemtc\documents\github\ui-development\motor2d\j1wowmenu.cpp(86): warning C4244: '-=' : conversión de 'float' a 'int'; posible pérdida de datos
-         Generando código...
-         Compilando...
-         j1App.cpp
-     1>d:\users\guillemtc\documents\github\ui-development\motor2d\j1app.cpp(228): warning C4018: '<' : no coinciden signed/unsigned
-         Generando código...
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D _ITERATOR_DEBUG_LEVEL=0 /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt UILabel.cpp
+         UILabel.cpp
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Users\guillemtc\Documents\GitHub\UI-Development\Debug\Game Development.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Users\guillemtc\Documents\GitHub\UI-Development\Debug\Game Development.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Users\guillemtc\Documents\GitHub\UI-Development\Debug\Game Development.lib" /MACHINE:X86 Debug\j1FileSystem.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\guillem\Documents\GitHub\UI-Development\Debug\Game Development.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\guillem\Documents\GitHub\UI-Development\Debug\Game Development.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\guillem\Documents\GitHub\UI-Development\Debug\Game Development.lib" /MACHINE:X86 Debug\j1FileSystem.obj
          Debug\j1Fonts.obj
          Debug\j1Gui.obj
          Debug\j1Main.obj
@@ -38,9 +29,9 @@
          Debug\UIImage.obj
          Debug\UIInputBox.obj
          Debug\UILabel.obj
-         Motor2D.vcxproj -> D:\Users\guillemtc\Documents\GitHub\UI-Development\Debug\Game Development.exe
-     1>Compilación del proyecto terminada "D:\Users\guillemtc\Documents\GitHub\UI-Development\Motor2D\Motor2D.vcxproj" (Build destinos).
+         Motor2D.vcxproj -> C:\Users\guillem\Documents\GitHub\UI-Development\Debug\Game Development.exe
+     1>Done Building Project "C:\Users\guillem\Documents\GitHub\UI-Development\Motor2D\Motor2D.vcxproj" (Build target(s)).
 
-Compilación correcta.
+Build succeeded.
 
-Tiempo transcurrido 00:00:02.42
+Time Elapsed 00:00:01.79

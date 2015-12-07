@@ -68,6 +68,21 @@ public:
 	void GetMousePosition(int &x, int &y);
 	void GetMouseMotion(int& x, int& y);
 
+	void StartGetText()const
+	{
+		SDL_StartTextInput();
+	}
+	void StopGetText()
+	{
+		SDL_StopTextInput();
+		text_input = "";
+	}
+
+	const char* GetTextInput()const
+	{
+		return text_input.GetString();
+	}
+
 private:
 	bool		windowEvents[WE_COUNT];
 	j1KeyState*	keyboard;
@@ -76,6 +91,7 @@ private:
 	int			mouse_motion_y;
 	int			mouse_x;
 	int			mouse_y;
+	p2SString	text_input;
 };
 
 #endif // __j1INPUT_H__

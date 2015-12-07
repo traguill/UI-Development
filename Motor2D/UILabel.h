@@ -24,6 +24,8 @@ public:
 
 	// Called before quitting
 	bool CleanUp();
+	
+	p2SString GetText() const;
 
 private:
 

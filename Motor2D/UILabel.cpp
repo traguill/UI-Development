@@ -63,7 +63,19 @@ bool UILabel::CleanUp()
 
 void UILabel::Print(p2SString _text)
 {
+	App->tex->UnLoad(texture);
+
 	text = _text;
-	texture = App->font->Print(text.GetString());
-	SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
+	if (text != "")
+	{
+		texture = App->font->Print(text.GetString());
+		SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
+	}
+	else
+		texture = NULL;
+}
+
+p2SString UILabel::GetText() const
+{
+	return text;
 }
