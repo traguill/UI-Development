@@ -41,6 +41,7 @@ bool j1WowMenu::Start()
 	background->interactable = false;
 	window = App->ui->CreateImage("wow/window.png", 500, 600);
 	login = App->ui->CreateButton("Login", 20, 10, "wow/button.png", "wow/button_pressed.png", "wow/button_hover.png");
+	login->listener = this;
 	login->SetParent(window);
 	App->ui->CreateButton("Manage Account", 20, 800, "wow/button.png", "wow/button_pressed.png", "wow/button_hover.png");
 	App->ui->CreateButton("Community Site", 20, 825, "wow/button.png", "wow/button_pressed.png", "wow/button_hover.png");
@@ -95,21 +96,15 @@ bool j1WowMenu::CleanUp()
 
 void j1WowMenu::OnGUI(UIEntity* gui, GUI_EVENTS event)
 {
-	if (gui->type == LABEL)
+
+	if (gui->type == BUTTON)
 	{
-		UILabel* label = (UILabel*)gui;
-		if ( label == label_test)
-		{
-			if (event == MOUSE_ENTER)
-				label->Print("Enter");
-
-			if (event == MOUSE_EXIT)
-				label->Print("Exit");
-
+		if (gui == login)
 			if (event == MOUSE_BUTTON_RIGHT_DOWN)
-				label->Print("ClickRight");
-			if (event == MOUSE_BUTTON_RIGHT_UP)
-				label->Print("ClickRight up");
-		}
+			{
+				login->SetVisible(false);
+			}
+				
+			
 	}
 }

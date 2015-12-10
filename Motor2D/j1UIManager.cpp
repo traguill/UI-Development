@@ -73,10 +73,14 @@ bool j1UIManager::Update(float dt)
 	p2List_item<UIEntity*>* item = gui_elements.start;
 	while (item && ret == true)
 	{
-		ret = item->data->Update(dt);
-		item->data->GUIEvents();
-		if (debug)
-			item->data->Debug();
+		if (item->data->IsVisible() == true)
+		{
+			ret = item->data->Update(dt);
+			item->data->GUIEvents();
+			if (debug)
+				item->data->Debug();
+			
+		}
 		item = item->next;
 	}
 

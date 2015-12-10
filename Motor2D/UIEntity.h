@@ -45,27 +45,31 @@ public:
 	SDL_Rect GetScreenRect()const;
 	SDL_Rect GetLocalRect()const;
 	void SetLocalPos(int x, int y);
+
+	void SetParent(UIEntity* _parent);
 	
-	void SetParent(UIEntity* parent);
-
 	void Debug();
-
 	void Drag();
+	//Hides or shows an UI element
+	void SetVisible(bool visible);
+	bool IsVisible()const;
 
 public:
 
 	GUI_TYPE			type;
 	GUI_EVENTS			gui_event;
-	bool				isVisible;
 	j1Module*			listener;
-	UIEntity*			parent = NULL;
+	p2List<UIEntity*>	childs;
 	bool				interactable = false;
 	bool				focusable = true;
 	bool				isFocus = false;
-
+	
 protected:
 	SDL_Rect rect; //Local
 
+private:
+	bool				isVisible = true;
+	UIEntity*			parent = NULL;
 
 };
 

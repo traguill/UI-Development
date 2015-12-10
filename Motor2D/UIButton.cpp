@@ -13,8 +13,8 @@ UIButton::UIButton() : UIEntity()
 
 UIButton::UIButton(const char* _text, const int x, const int y, const char* path_idle, const char* path_pressed, const char* path_hover) : UIEntity()
 {
+	type = BUTTON;
 	interactable = true;
-	type = IMAGE;
 	state = IDLE;
 	text.Print(_text);
 
@@ -27,7 +27,7 @@ UIButton::UIButton(const char* _text, const int x, const int y, const char* path
 		pressed = App->tex->Load(path_pressed);
 	if (path_hover)
 		hover = App->tex->Load(path_hover);
-	text.parent = this;
+	text.SetParent(this);
 	SDL_QueryTexture(idle, NULL, NULL, &rect.w, &rect.h);
 
 }
@@ -54,11 +54,13 @@ bool UIButton::Update(float dt)
 	if (state == HOVER)
 		App->render->Blit(hover, x , y);
 
-	SDL_Rect button_rec = GetScreenRect();
+	/*SDL_Rect button_rec = GetScreenRect();
 	SDL_Rect t = text.GetLocalRect();
 	x = button_rec.x + (button_rec.w / 2 - t.w / 2);
 	y = button_rec.y + (button_rec.h / 2 - t.h / 2);
-	App->render->Blit(text.texture, x, y);
+	App->render->Blit(text.texture, x, y);*/
+
+	text.Update(dt);
 
 
 	return ret;
@@ -74,7 +76,7 @@ bool UIButton::CleanUp()
 		App->tex->UnLoad(pressed);
 	if (hover)
 		App->tex->UnLoad(hover);
-
+	text.CleanUp();
 
 	return ret;
 }

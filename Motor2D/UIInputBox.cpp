@@ -18,8 +18,8 @@ UIInputBox::UIInputBox(const char* txt, const int x, const int y, const char* pa
 	text = new UILabel(txt, 0, 0);
 	background = new UIImage(path, 0 - DELAY_INPUT, 0 - DELAY_INPUT);
 
-	text->parent = this;
-	background->parent = this;
+	text->SetParent(this);
+	background->SetParent(this);
 
 	rect.x = x;
 	rect.y = y;

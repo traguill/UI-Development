@@ -20,6 +20,13 @@ bool UIEntity::Update(float dt)
 
 bool UIEntity::CleanUp()
 {
+	p2List_item<UIEntity*>* item = childs.start;
+	while (item)
+	{
+		delete item->data;
+		item = item->next;
+	}
+	childs.clear();
 	return true;
 }
 
@@ -119,11 +126,6 @@ void UIEntity::SetLocalPos(int x, int y)
 	rect.y = y;
 }
 
-void UIEntity::SetParent(UIEntity* _parent)
-{
-	parent = _parent;
-}
-
 void UIEntity::Drag()
 {
 	if (interactable)
@@ -133,4 +135,30 @@ void UIEntity::Drag()
 		rect.x += motion_x;
 		rect.y += motion_y;
 	}
+}
+
+void UIEntity::SetParent(UIEntity* _parent)
+{
+	parent = _parent;
+	parent->childs.add(this);
+}
+
+void UIEntity::SetVisible(bool visible)
+{
+	if (visible != isVisible)
+	{
+		isVisible = visible;
+		p2List_item<UIEntity*>* item = childs.start;
+		while (item)
+		{
+			item->data->SetVisible(visible);
+			item = item->next;
+		}
+		delete item;
+	}
+}
+
+bool UIEntity::IsVisible()const
+{
+	return isVisible;
 }
