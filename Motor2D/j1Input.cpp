@@ -85,7 +85,8 @@ bool j1Input::PreUpdate()
 		switch(event.type)
 		{
 			case SDL_TEXTINPUT:
-				text_input += event.text.text;
+				text_input.Insert(cursor_position, event.text.text);
+				cursor_position += strlen(event.text.text);
 			break;
 
 			case SDL_QUIT:
@@ -110,6 +111,46 @@ bool j1Input::PreUpdate()
 					windowEvents[WE_SHOW] = true;
 					break;
 				}
+			break;
+
+			case SDL_KEYDOWN:
+
+				if (is_writting)
+				{
+					switch (event.key.keysym.sym)
+					{
+					case SDLK_BACKSPACE:
+						text_input.Cut(cursor_position - 1, cursor_position - 1);
+						if (cursor_position > 0)
+						{
+							cursor_position--;
+						}
+						break;
+					case SDLK_LEFT:
+						if (cursor_position > 0)
+						{
+							cursor_position--;
+						}
+						break;
+					case SDLK_RIGHT:
+						if (cursor_position < strlen(text_input.GetString()))
+						{
+							cursor_position++;
+						}
+						break;
+					case SDLK_HOME:
+						cursor_position = 0;
+						break;
+					case SDLK_END:
+						cursor_position = text_input.Length();
+						break;
+					case SDLK_DELETE:
+						if (cursor_position < text_input.Length())
+							text_input.Cut(cursor_position, cursor_position);
+						break;
+					}
+				}
+
 			break;
 
 			case SDL_MOUSEBUTTONDOWN:

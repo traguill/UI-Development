@@ -68,19 +68,27 @@ public:
 	void GetMousePosition(int &x, int &y);
 	void GetMouseMotion(int& x, int& y);
 
-	void StartGetText()const
+	void StartGetText(const int position)
 	{
 		SDL_StartTextInput();
+		cursor_position = position;
+		is_writting = true;
 	}
 	void StopGetText()
 	{
 		SDL_StopTextInput();
 		text_input = "";
+		is_writting = false;
 	}
 
 	const char* GetTextInput()const
 	{
 		return text_input.GetString();
+	}
+
+	int GetCursorPosition()const
+	{
+		return cursor_position;
 	}
 
 private:
@@ -92,6 +100,8 @@ private:
 	int			mouse_x;
 	int			mouse_y;
 	p2SString	text_input;
+	int		cursor_position;
+	bool		is_writting = false;
 };
 
 #endif // __j1INPUT_H__

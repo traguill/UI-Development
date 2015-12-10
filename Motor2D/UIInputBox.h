@@ -24,7 +24,7 @@ public:
 	bool CleanUp();
 
 private:
-	void DrawCursor();
+	void DrawCursor(int position);
 
 private:
 

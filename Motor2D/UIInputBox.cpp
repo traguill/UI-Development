@@ -42,7 +42,7 @@ bool UIInputBox::Update(float dt)
 
 	if (isFocus && !writting)
 	{
-		App->input->StartGetText();	//Start writting
+		App->input->StartGetText(0);	//Start writting
 		text->Print("");
 		writting = true;
 	}
@@ -50,7 +50,7 @@ bool UIInputBox::Update(float dt)
 	if (isFocus && writting)
 	{
 		text->Print(App->input->GetTextInput());
-		DrawCursor();			//Keep writting
+		DrawCursor(App->input->GetCursorPosition());			//Keep writting
 	}
 	else
 		if (!isFocus)
@@ -76,10 +76,12 @@ bool UIInputBox::CleanUp()
 	return ret;
 }
 
-void UIInputBox::DrawCursor()
+void UIInputBox::DrawCursor(int position)
 {
 	SDL_Rect cursor = text->GetScreenRect();
-	App->font->CalcSize(text->GetText().GetString(), cursor.w, cursor.h);
+	char* txt = new char();
+	strncpy_s(txt, position+1, text->GetText().GetString(), position);
+	App->font->CalcSize(txt, cursor.w, cursor.h);
 	cursor.x += cursor.w;
 	cursor.w = 1;
 	App->render->DrawQuad(cursor, 255, 255, 255, 255);
