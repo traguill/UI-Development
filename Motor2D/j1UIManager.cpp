@@ -99,8 +99,11 @@ bool j1UIManager::CleanUp()
 	while (item && ret == true)
 	{
 		ret = item->data->CleanUp();
+
+		delete item->data;
 		item = item->next;
 	}
+	gui_elements.clear();
 
 	return ret;
 }

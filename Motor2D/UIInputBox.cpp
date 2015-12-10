@@ -49,15 +49,14 @@ bool UIInputBox::Update(float dt)
 
 	if (isFocus && writting)
 	{
-		text->Print(App->input->GetTextInput());
+		text->Print(App->input->GetTextInput(), is_password);
 		DrawCursor(App->input->GetCursorPosition());			//Keep writting
 	}
-	else
-		if (!isFocus)
-		{
-			writting = false;				//Stop writting
-			App->input->StopGetText();
-		}
+	
+	if (!isFocus && writting)
+	{
+		writting = false;				//Stop writting
+	}
 	text->Update(dt);
 
 	return ret;
@@ -66,6 +65,7 @@ bool UIInputBox::Update(float dt)
 bool UIInputBox::CleanUp()
 {
 	bool ret = true;
+
 
 	text->CleanUp();
 	background->CleanUp();
@@ -79,11 +79,12 @@ bool UIInputBox::CleanUp()
 void UIInputBox::DrawCursor(int position)
 {
 	SDL_Rect cursor = text->GetScreenRect();
-	char* txt = new char();
-	strncpy_s(txt, position+1, text->GetText().GetString(), position);
-	App->font->CalcSize(txt, cursor.w, cursor.h);
+	p2SString t(text->GetText());
+	t.Cut(position, strlen(text->GetText().GetString()));
+	App->font->CalcSize(t.GetString(), cursor.w, cursor.h);
 	cursor.x += cursor.w;
 	cursor.w = 1;
 	App->render->DrawQuad(cursor, 255, 255, 255, 255);
+
 }
 

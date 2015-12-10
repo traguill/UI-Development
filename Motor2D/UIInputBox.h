@@ -26,6 +26,9 @@ public:
 private:
 	void DrawCursor(int position);
 
+public:
+	bool is_password = false;
+
 private:
 
 	UILabel* text;

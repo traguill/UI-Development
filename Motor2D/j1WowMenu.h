@@ -7,6 +7,7 @@ struct SDL_Texture;
 class UILabel;
 class UIImage;
 class UIButton;
+class UIInputBox;
 
 class j1WowMenu : public j1Module
 {
@@ -43,6 +44,7 @@ private:
 	UIImage*		window;
 	UIButton*		login;
 	UIImage*		background;
+	UIInputBox*		password_box;
 
 };
 

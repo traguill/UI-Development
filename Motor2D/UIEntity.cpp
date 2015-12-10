@@ -20,13 +20,6 @@ bool UIEntity::Update(float dt)
 
 bool UIEntity::CleanUp()
 {
-	p2List_item<UIEntity*>* item = childs.start;
-	while (item)
-	{
-		delete item->data;
-		item = item->next;
-	}
-	childs.clear();
 	return true;
 }
 

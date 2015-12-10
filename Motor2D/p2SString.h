@@ -369,6 +369,17 @@ public:
 		return(*this);
 	}
 
+	p2SString& Replace(const char c, int num)
+	{
+		if (num <= size)
+		{
+			char* tmp = str;
+			_strnset_s(tmp, num + 1, '*', num);
+		}
+
+		return *this;
+	}
+
 private:
 
 	void Alloc(unsigned int requiered_memory)

@@ -71,6 +71,7 @@ public:
 	void StartGetText(const int position)
 	{
 		SDL_StartTextInput();
+		text_input = "";
 		cursor_position = position;
 		is_writting = true;
 	}

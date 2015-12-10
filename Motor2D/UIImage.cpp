@@ -60,6 +60,7 @@ bool UIImage::CleanUp()
 {
 	bool ret = true;
 
+
 	if (texture != NULL)
 	{
 		App->tex->UnLoad(texture);

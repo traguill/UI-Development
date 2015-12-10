@@ -61,14 +61,23 @@ bool UILabel::CleanUp()
 }
 
 
-void UILabel::Print(p2SString _text)
+void UILabel::Print(p2SString _text, bool isPassword)
 {
 	App->tex->UnLoad(texture);
 
 	text = _text;
 	if (text != "")
 	{
-		texture = App->font->Print(text.GetString());
+		if (isPassword == false)
+		{
+			texture = App->font->Print(text.GetString());
+		}
+		else
+		{
+			p2SString s(text);
+			s.Replace('*', strlen(text.GetString()));
+			texture = App->font->Print(s.GetString());
+		}
 		SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
 	}
 	else

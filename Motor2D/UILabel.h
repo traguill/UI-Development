@@ -20,7 +20,7 @@ public:
 
 	bool Update(float dt);
 
-	void Print(p2SString _text);
+	void Print(p2SString _text, bool isPassword = false);
 
 	// Called before quitting
 	bool CleanUp();

@@ -76,6 +76,7 @@ bool UIButton::CleanUp()
 		App->tex->UnLoad(pressed);
 	if (hover)
 		App->tex->UnLoad(hover);
+
 	text.CleanUp();
 
 	return ret;

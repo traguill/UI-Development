@@ -14,6 +14,7 @@
 #include "UILabel.h"
 #include "UIImage.h"
 #include "UIButton.h"
+#include "UIInputBox.h"
 
 j1WowMenu::j1WowMenu() : j1Module()
 {
@@ -50,7 +51,8 @@ bool j1WowMenu::Start()
 	App->ui->CreateButton("Terms of Use", 1110, 825, "wow/button.png", "wow/button_pressed.png", "wow/button_hover.png");
 
 	App->ui->CreateInputBox("Your name", 2, 500, "wow/input_box.png");
-
+	password_box = App->ui->CreateInputBox("Your password", 2, 600, "wow/input_box.png");
+	password_box->is_password = true;
 	return true;
 }
 
@@ -84,12 +86,6 @@ bool j1WowMenu::PostUpdate()
 bool j1WowMenu::CleanUp()
 {
 	LOG("Freeing scene");
-
-
-	delete label_test;
-	delete window;
-	delete login;
-	delete background;
 
 	return true;
 }
