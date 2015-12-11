@@ -223,7 +223,7 @@ void j1UIManager::SetNextFocus()
 	UIEntity* best_match = NULL;
 	while (item)
 	{
-		if (item->data->focusable && item->data != focus)
+		if (item->data->focusable && item->data != focus && item->data->IsVisible())
 		{
 			SDL_Rect pos = item->data->GetScreenRect();
 			if (pos.y < min_y && pos.y > focus_y)
