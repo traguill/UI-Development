@@ -79,7 +79,7 @@ bool UIInputBox::CleanUp()
 void UIInputBox::DrawCursor(int position)
 {
 	SDL_Rect cursor = text->GetScreenRect();
-	p2SString t(text->GetText());
+	p2SString t(text->GetText(is_password));
 	t.Cut(position, strlen(text->GetText().GetString()));
 	App->font->CalcSize(t.GetString(), cursor.w, cursor.h);
 	cursor.x += cursor.w;

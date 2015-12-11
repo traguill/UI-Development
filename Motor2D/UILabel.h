@@ -25,11 +25,12 @@ public:
 	// Called before quitting
 	bool CleanUp();
 	
-	p2SString GetText() const;
+	p2SString GetText(bool get_password = false) const;
 
 private:
 
 	p2SString	text;
+	p2SString	password;
 
 public:
 
